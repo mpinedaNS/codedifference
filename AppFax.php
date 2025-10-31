@@ -1155,22 +1155,22 @@ return $users;
 
 $this->nslog('error', '('.$this->name.'.read pangea ) aaker0 ');
            if (isset($body->ConcertService___CDRResponse->Result->CDR[0])) {
-                   $idx = 0;
-                   $cntUsed = 0;
+           $idx = 0;
+           $cntUsed = 0;
              while (isset($body->ConcertService___CDRResponse->Result->CDR[$idx]) && $cntUsed <500)
              {
-                     $idx++;
-             if (isset($body->ConcertService___CDRResponse->Result->CDR[$idx]))
-             {
-                             $this->nslog('error', '('.$this->name.'.read pangea ) aaker1 ');
+             $idx++;
+         if (isset($body->ConcertService___CDRResponse->Result->CDR[$idx]))
+         {
+                 $this->nslog('error', '('.$this->name.'.read pangea ) aaker1 ');
                   $CACHE_ID = 'pangea_complete'.'_'.$body->ConcertService___CDRResponse->Result->CDR[$idx]->IMAGEFILEPREFIX;
-        echo "$CACHE_ID check\r\n"; 
-                             $this->nslog('error', '('.$this->name.'.read pangea ) aaker2 ', $CACHE_ID ); 
-                     if (Cache::read($CACHE_ID, '_long_cache_')!= FALSE)
-                     {
-        echo "aaker3";
-                             continue;
-                     }
+    echo "$CACHE_ID check\r\n"; 
+                 $this->nslog('error', '('.$this->name.'.read pangea ) aaker2 ', $CACHE_ID ); 
+             if (Cache::read($CACHE_ID, '_long_cache_')!= FALSE)
+             {
+    echo "aaker3";
+                 continue;
+             }
                }
                $cntUsed++;
                $ResultsArray[] = $body->ConcertService___CDRResponse->Result->CDR[$idx];
@@ -1343,8 +1343,8 @@ $this->nslog('error', '('.$this->name.'.read pangea ) aaker0 ');
                      if (isset($existingFileInfo['tx_hostname']) && $existingFileInfo['tx_hostname']!= gethostname())
                      {
                        Cache::write($CACHE_ID,true, '_long_cache_');
-                       echo "$CACHE_ID write\r\n";
-                       continue;
+               echo "$CACHE_ID write\r\n";
+               continue;
                      }
                    }
                    else {
@@ -1407,8 +1407,8 @@ $this->nslog('error', '('.$this->name.'.read pangea ) aaker0 ');
                     $this->nslog('fax', '('.$this->name.'.processRecieved) insufficient space for user to recieve fax '.print_r($conditions, true));
                     $conditions['caller_id'] = $conditions['from_number'];
                     Cache::write($CACHE_ID,true, '_long_cache_');
-                    echo "$CACHE_ID write2\r\n";
-                    $this->_emailFax($aorArray[0].'@'.$aorArray[1],null,$conditions,'storage_full',false);
+            echo "$CACHE_ID write2\r\n";
+            $this->_emailFax($aorArray[0].'@'.$aorArray[1],null,$conditions,'storage_full',false);
                     continue;
                    }
 
@@ -1492,9 +1492,9 @@ echo "$CACHE_ID write3\r\n";
                  }
 
                }
-               else {
-                       echo "$CACHE_ID write4\r\n";
-                       Cache::write($CACHE_ID,true, '_long_cache_');
+           else {
+               echo "$CACHE_ID write4\r\n";
+               Cache::write($CACHE_ID,true, '_long_cache_');
                 $this->nslog('fax', '('.$this->name.'.read pangea ) processRecieved no user '.print_r("", true));
                }
 
